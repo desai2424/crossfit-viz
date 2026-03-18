@@ -1,0 +1,89 @@
+{
+  "total_athletes": 227030,
+  "men": 122928,
+  "women": 104102,
+  "rx_total": 217030,
+  "scaled_total": 10000,
+  "rx_pct": 95.6,
+  "countries": 183,
+  "affiliates": 8717,
+  "median_age": 36,
+  "age_hist": [
+    4272,
+    11033,
+    33210,
+    50424,
+    50330,
+    38201,
+    25321,
+    14238,
+    0,
+    0
+  ],
+  "age_edges": [
+    15,
+    20,
+    25,
+    30,
+    35,
+    40,
+    45,
+    50,
+    55,
+    60,
+    65
+  ],
+  "top_countries": {
+    "United States": 81730,
+    "France": 19180,
+    "United Kingdom": 18638,
+    "Brazil": 11384,
+    "Australia": 11217,
+    "Canada": 8718,
+    "Korea (the Republic of)": 7536,
+    "Italy": 5453,
+    "Spain": 5236,
+    "Germany": 4346,
+    "Netherlands": 4324,
+    "South Africa": 4151,
+    "Mexico": 3190,
+    "Switzerland": 2892,
+    "Portugal": 2590,
+    "Ireland": 2539,
+    "New Zealand": 2226,
+    "Sweden": 2131,
+    "China": 1758,
+    "Japan": 1613
+  },
+  "completion_rates": {
+    "26.1": {
+      "scored": 210026,
+      "finished": 153,
+      "pct": 0.1
+    },
+    "26.2": {
+      "scored": 197366,
+      "finished": 13853,
+      "pct": 7.0
+    },
+    "26.3": {
+      "scored": 189216,
+      "finished": 95,
+      "pct": 0.1
+    }
+  },
+  "median_scores": {
+    "26.1": {
+      "median_reps": 194,
+      "mean_reps": 195
+    },
+    "26.2": {
+      "median_reps": 112,
+      "mean_reps": 106
+    },
+    "26.3": {
+      "median_reps": 163,
+      "mean_reps": 163
+    }
+  }
+}

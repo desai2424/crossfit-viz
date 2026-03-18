@@ -1,0 +1,126 @@
+{
+  "Men": {
+    "total_rx": 117928,
+    "total_scaled": 5000,
+    "buckets": [
+      {
+        "age_range": "18-24",
+        "rx_count": 5620,
+        "scaled_count": 213,
+        "total": 5833,
+        "rx_pct": 96.3,
+        "rx_struggle_pct": 26.5
+      },
+      {
+        "age_range": "25-29",
+        "rx_count": 16016,
+        "scaled_count": 487,
+        "total": 16503,
+        "rx_pct": 97.0,
+        "rx_struggle_pct": 26.7
+      },
+      {
+        "age_range": "30-34",
+        "rx_count": 26616,
+        "scaled_count": 849,
+        "total": 27465,
+        "rx_pct": 96.9,
+        "rx_struggle_pct": 26.5
+      },
+      {
+        "age_range": "35-39",
+        "rx_count": 27116,
+        "scaled_count": 1017,
+        "total": 28133,
+        "rx_pct": 96.4,
+        "rx_struggle_pct": 26.3
+      },
+      {
+        "age_range": "40-44",
+        "rx_count": 20251,
+        "scaled_count": 925,
+        "total": 21176,
+        "rx_pct": 95.6,
+        "rx_struggle_pct": 26.3
+      },
+      {
+        "age_range": "45-49",
+        "rx_count": 13433,
+        "scaled_count": 813,
+        "total": 14246,
+        "rx_pct": 94.3,
+        "rx_struggle_pct": 26.5
+      },
+      {
+        "age_range": "50-54",
+        "rx_count": 7752,
+        "scaled_count": 625,
+        "total": 8377,
+        "rx_pct": 92.5,
+        "rx_struggle_pct": 26.2
+      }
+    ]
+  },
+  "Women": {
+    "total_rx": 99102,
+    "total_scaled": 5000,
+    "buckets": [
+      {
+        "age_range": "18-24",
+        "rx_count": 6894,
+        "scaled_count": 292,
+        "total": 7186,
+        "rx_pct": 95.9,
+        "rx_struggle_pct": 26.4
+      },
+      {
+        "age_range": "25-29",
+        "rx_count": 15997,
+        "scaled_count": 710,
+        "total": 16707,
+        "rx_pct": 95.8,
+        "rx_struggle_pct": 26.5
+      },
+      {
+        "age_range": "30-34",
+        "rx_count": 21951,
+        "scaled_count": 1008,
+        "total": 22959,
+        "rx_pct": 95.6,
+        "rx_struggle_pct": 26.2
+      },
+      {
+        "age_range": "35-39",
+        "rx_count": 21186,
+        "scaled_count": 1011,
+        "total": 22197,
+        "rx_pct": 95.4,
+        "rx_struggle_pct": 26.3
+      },
+      {
+        "age_range": "40-44",
+        "rx_count": 16111,
+        "scaled_count": 914,
+        "total": 17025,
+        "rx_pct": 94.6,
+        "rx_struggle_pct": 26.3
+      },
+      {
+        "age_range": "45-49",
+        "rx_count": 10435,
+        "scaled_count": 640,
+        "total": 11075,
+        "rx_pct": 94.2,
+        "rx_struggle_pct": 26.5
+      },
+      {
+        "age_range": "50-54",
+        "rx_count": 5486,
+        "scaled_count": 375,
+        "total": 5861,
+        "rx_pct": 93.6,
+        "rx_struggle_pct": 25.8
+      }
+    ]
+  }
+}
