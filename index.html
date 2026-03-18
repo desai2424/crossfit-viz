@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Gym's 2026 Open Scouting Report</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.plot.ly/plotly-2.35.0.min.js"></script>
+</head>
+<body>
+
+<!-- SIDEBAR NAV -->
+<nav class="sidebar-nav" id="sidebar-nav">
+    <a href="#section-1"><span class="nav-dot"></span><span class="nav-label">Global Rank</span></a>
+    <a href="#section-2"><span class="nav-dot"></span><span class="nav-label">Strength Profile</span></a>
+    <a href="#section-3"><span class="nav-dot"></span><span class="nav-label">Muscle-Up Report</span></a>
+    <a href="#section-4"><span class="nav-dot"></span><span class="nav-label">Best & Worst</span></a>
+    <a href="#section-5"><span class="nav-dot"></span><span class="nav-label">Similar Gyms</span></a>
+    <a href="#section-7"><span class="nav-dot"></span><span class="nav-label">Hidden Gems</span></a>
+    <a href="#section-7b"><span class="nav-dot"></span><span class="nav-label">Gym Awards</span></a>
+    <a href="#section-7c"><span class="nav-dot"></span><span class="nav-label">Potential</span></a>
+    <a href="#section-8"><span class="nav-dot"></span><span class="nav-label">Consistency</span></a>
+    <a href="#section-9"><span class="nav-dot"></span><span class="nav-label">Demographics</span></a>
+    <a href="#section-10"><span class="nav-dot"></span><span class="nav-label">Athlete Cards</span></a>
+</nav>
+
+<!-- HERO -->
+<div class="hero" id="hero">
+    <div class="hero-badge">2026 CROSSFIT OPEN</div>
+    <h1>Your Gym's Open <span class="highlight">Scouting Report</span></h1>
+    <p class="subtitle">227,000 athletes. 8,700 gyms. Three workouts. Here's where yours stands.</p>
+    <div class="hero-gym-name" id="hero-gym-name">CrossFit Southie</div>
+    <div class="stat-bar">
+        <div class="stat">
+            <div class="stat-number" id="hero-rank">-</div>
+            <div class="stat-label">Gym Rank</div>
+        </div>
+        <div class="stat">
+            <div class="stat-number" id="hero-pct">-</div>
+            <div class="stat-label">Median Percentile</div>
+        </div>
+        <div class="stat">
+            <div class="stat-number" id="hero-athletes">-</div>
+            <div class="stat-label">Athletes</div>
+        </div>
+        <div class="stat">
+            <div class="stat-number" id="hero-archetype">-</div>
+            <div class="stat-label">Gym Archetype</div>
+        </div>
+    </div>
+</div>
+
+<!-- SECTION 1: GLOBAL RANK -->
+<div class="section" id="section-1">
+    <div class="section-number">01</div>
+    <h2>Your Gym's Global Rank</h2>
+    <p class="section-subtitle">Where you stand among 8,700+ affiliates worldwide</p>
+    <p class="thesis">We ranked every affiliate by the median overall percentile of their Rx athletes. This is the single number that captures <strong>how your gym performed</strong> relative to the entire Open field.</p>
+    <div class="stat-grid" id="rank-stats"></div>
+    <div class="chart-container">
+        <div class="chart-title">Your gym among all affiliates</div>
+        <div id="rank-chart"></div>
+    </div>
+</div>
+
+<!-- SECTION 2: STRENGTH PROFILE -->
+<div class="section" id="section-2">
+    <div class="section-number">02</div>
+    <h2>Gym Strength Profile</h2>
+    <p class="section-subtitle">Engine. Gymnast. Barbell. Every gym has a type.</p>
+    <p class="thesis">Each workout tested something different: <strong>engine</strong> (26.1), <strong>gymnastics</strong> (26.2), and <strong>barbell</strong> (26.3). Your gym's profile across all three reveals its competitive DNA &mdash; and where there's room to grow.</p>
+    <div class="stat-grid" id="profile-stats"></div>
+    <div class="chart-container">
+        <div class="chart-title">Workout performance vs global median</div>
+        <div id="profile-radar" style="height: 420px;"></div>
+    </div>
+    <div class="callout" id="profile-callout"></div>
+</div>
+
+<!-- SECTION 3: MUSCLE-UP REPORT -->
+<div class="section" id="section-3">
+    <div class="section-number">03</div>
+    <h2>The Muscle-Up Report</h2>
+    <p class="section-subtitle">The movement that defined the 2026 Open</p>
+    <p class="thesis">26.2 had a cliff: ring muscle-ups at rep 112. Globally, <span id="mu-global-pct">-</span>% of Rx athletes got past that wall. <strong>How did your gym compare?</strong></p>
+    <div class="stat-grid" id="mu-stats"></div>
+    <div class="chart-container">
+        <div class="chart-title">Your athletes on 26.2 &mdash; who got to muscle-ups?</div>
+        <div id="mu-chart"></div>
+    </div>
+</div>
+
+<!-- SECTION 4: BEST & WORST WORKOUT -->
+<div class="section" id="section-4">
+    <div class="section-number">04</div>
+    <h2>Best & Worst Workout</h2>
+    <p class="section-subtitle">Which workout your gym crushed &mdash; and which one exposed you</p>
+    <p class="thesis">Every gym has a workout that <strong>lifted</strong> its overall rank and one that <strong>dragged it down</strong>. This section breaks down your gym's performance on each workout, ranked against every other affiliate.</p>
+    <div class="stat-grid" id="bw-stats"></div>
+    <div class="chart-container">
+        <div class="chart-title">Your gym's percentile rank by workout vs all affiliates</div>
+        <div id="bw-chart" style="height: 350px;"></div>
+    </div>
+    <div class="callout" id="bw-callout"></div>
+</div>
+
+<!-- SECTION 5: SIMILAR GYMS -->
+<div class="section" id="section-5">
+    <div class="section-number">05</div>
+    <h2>Your Gym vs. Similar-Sized Gyms</h2>
+    <p class="section-subtitle">Are you punching above your weight?</p>
+    <p class="thesis">Comparing a 15-person affiliate to a 200-person megagym isn't apples to apples. Here's how you stack up against affiliates <strong>with a similar number of Open athletes</strong>.</p>
+    <div class="stat-grid" id="sim-stats"></div>
+    <div class="chart-container">
+        <div class="chart-title">Performance distribution of similar-sized gyms</div>
+        <div id="sim-chart" style="height: 350px;"></div>
+    </div>
+    <div class="chart-container">
+        <div class="chart-title">Comparable gyms nearby</div>
+        <div id="sim-table"></div>
+    </div>
+</div>
+
+<!-- SECTION 7: HIDDEN GEMS -->
+<div class="section" id="section-7">
+    <div class="section-number">07</div>
+    <h2>Hidden Gems</h2>
+    <p class="section-subtitle">Athletes who surprised everyone on one workout</p>
+    <p class="thesis">These are the athletes in your gym who had a <strong>single standout performance</strong> &mdash; a workout where they ranked significantly higher than their overall position. They might be sitting on untapped potential.</p>
+    <div id="gems-content"></div>
+    <div class="chart-container">
+        <div class="chart-title">Hidden gem percentile profiles</div>
+        <div id="gems-chart" style="height: 400px;"></div>
+    </div>
+</div>
+
+<!-- SECTION 7B: GYM AWARDS -->
+<div class="section" id="section-7b">
+    <div class="section-number">08</div>
+    <h2>Gym Awards</h2>
+    <p class="section-subtitle">Superlatives from your gym's Open performance</p>
+    <p class="thesis">Every gym has standout stories hiding in the data. These are the athletes who earned <strong>unofficial titles</strong> based on how they performed across all three workouts.</p>
+    <div id="awards-content"></div>
+</div>
+
+<!-- SECTION 7C: UNTAPPED POTENTIAL -->
+<div class="section" id="section-7c">
+    <div class="section-number">09</div>
+    <h2>Untapped Potential</h2>
+    <p class="section-subtitle">What if every workout was your best workout?</p>
+    <p class="thesis">For each athlete, we compare their <strong>average percentile to their best single workout</strong>. The gap between the two shows how much upside they have if their weaker areas catch up to their strengths.</p>
+    <div class="chart-container">
+        <div class="chart-title">Potential gain if all workouts matched their best</div>
+        <div id="whatif-chart" style="height: 400px;"></div>
+    </div>
+</div>
+
+<!-- SECTION 8: CONSISTENCY -->
+<div class="section" id="section-8">
+    <div class="section-number">08</div>
+    <h2>Athlete Consistency</h2>
+    <p class="section-subtitle">How steady are your athletes across all three workouts?</p>
+    <p class="thesis">Low volatility means an athlete performed at a <strong>similar percentile across all three workouts</strong>. High volatility means big swings. Your gym's consistency profile says something about the breadth of your programming.</p>
+    <div class="stat-grid" id="con-stats"></div>
+    <div class="chart-container">
+        <div class="chart-title">Your athletes' consistency vs global distribution</div>
+        <div id="con-chart" style="height: 380px;"></div>
+    </div>
+</div>
+
+<!-- SECTION 9: DEMOGRAPHICS -->
+<div class="section" id="section-9">
+    <div class="section-number">09</div>
+    <h2>Your Gym's Demographics</h2>
+    <p class="section-subtitle">Age, gender, and how you compare to the global field</p>
+    <p class="thesis">Context matters. Here's how your gym's age distribution and gender split compare to the <strong>227,000-athlete global field</strong>.</p>
+    <div class="stat-grid" id="demo-stats"></div>
+    <div class="chart-container">
+        <div class="chart-title">Age distribution &mdash; your gym vs global</div>
+        <div id="demo-age-chart" style="height: 350px;"></div>
+    </div>
+</div>
+
+<!-- SECTION 10: ATHLETE CARDS -->
+<div class="section" id="section-10">
+    <div class="section-number">10</div>
+    <h2>Every Athlete's Card</h2>
+    <p class="section-subtitle">Individual breakdowns for your entire roster</p>
+    <p class="thesis">Every athlete in your gym gets a card: their <strong>percentile on each workout</strong>, their archetype, and where they rank in the global field. Sort by any column to find your gym's strongest performers.</p>
+    <div class="chart-container">
+        <div class="chart-title">Athlete performance across all three workouts</div>
+        <div id="cards-bump-chart"></div>
+    </div>
+    <div class="chart-container">
+        <div class="chart-title">Full roster breakdown</div>
+        <div id="cards-table"></div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+    <p>Data sourced from the CrossFit Games leaderboard. Analysis and visualizations generated from 227,000+ public results.</p>
+    <p style="margin-top: 0.5rem;">The 2026 CrossFit Open &mdash; 26.1 &middot; 26.2 &middot; 26.3</p>
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
