@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 CrossFit Open Wrapped</title>
+    <meta name="description" content="Personalized scouting report for your CrossFit affiliate. See your gym's rank, strength profile, athlete awards, and more across 8,794 gyms.">
+    <meta property="og:title" content="2026 CrossFit Open Wrapped">
+    <meta property="og:description" content="Your CrossFit Open. Wrapped. Find out where your affiliate stands among 8,794 gyms.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="2026 CrossFit Open Wrapped">
+    <meta name="twitter:description" content="Your CrossFit Open. Wrapped. Find out where your affiliate stands among 8,794 gyms.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/css/tom-select.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.plot.ly/plotly-2.35.0.min.js"></script>
+</head>
+<body>
+
+<!-- ═══════════════ HERO + FORM ═══════════════ -->
+<section class="lp-hero">
+    <div class="lp-hero-bg-glow"></div>
+    <div class="lp-hero-content">
+        <div class="lp-hero-text">
+            <div class="lp-badge">2026 CROSSFIT OPEN</div>
+            <h1>Your CrossFit Open.<br><span class="lp-gradient-text">Wrapped.</span></h1>
+            <p class="lp-subtitle">Find out where your affiliate dominates, where it falls short, and how every athlete on your roster stacks up against <strong>233,074 competitors</strong> across <strong>8,794 gyms</strong>.</p>
+        </div>
+        <div class="lp-form-card">
+            <h2 class="lp-form-title">Get Your Open Wrapped</h2>
+            <p class="lp-form-sub">Personalized for your affiliate.</p>
+            <form id="lead-form" autocomplete="on">
+                <div class="form-row">
+                    <div class="form-group" style="flex:1">
+                        <label for="gym">Your Gym</label>
+                        <select id="gym" name="gym" placeholder="Search for your gym..." required></select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <select id="name" name="name" placeholder="Search for your name..." required></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="harry@crossfit.com" autocomplete="email">
+                    </div>
+                </div>
+                <div class="form-row" style="grid-template-columns:1fr">
+                    <div class="form-group">
+                        <label for="role">I am a...</label>
+                        <select id="role" name="role">
+                            <option value="" disabled selected>Select role</option>
+                            <option value="athlete">Athlete</option>
+                            <option value="coach">Coach</option>
+                            <option value="owner">Gym Owner</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="submit-btn" id="submit-btn">
+                    <span class="btn-text">Get My Open Wrapped &rarr;</span>
+                    <span class="btn-loading" style="display:none">Loading...</span>
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ AFFILIATE LOGO BAR ═══════════════ -->
+<section class="lp-logos">
+    <p class="lp-logos-label">Custom reports for <strong>8,794 affiliates</strong> including</p>
+    <div class="lp-logos-track">
+        <div class="lp-logos-scroll">
+            <span class="lp-logo-name">CrossFit Mayhem</span>
+            <span class="lp-logo-dot"></span>
+            <span class="lp-logo-name">PRVN Fitness</span>
+            <span class="lp-logo-dot"></span>
+            <span class="lp-logo-name">CrossFit Invictus</span>
+            <span class="lp-logo-dot"></span>
+            <span class="lp-logo-name">HWPO</span>
+            <span class="lp-logo-dot"></span>
+            <span class="lp-logo-name">CrossFit New England</span>
+            <span class="lp-logo-dot"></span>
+            <span class="lp-logo-name">CrossFit Krypton</span>
+            <span class="lp-logo-dot"></span>
+            <span class="lp-logo-name">TTT CrossFit</span>
+            <span class="lp-logo-dot"></span>
+            <span class="lp-logo-name">CrossFit Fort Vancouver</span>
+            <span class="lp-logo-dot"></span>
+            <span class="lp-logo-name">CrossFit Reignited</span>
+            <span class="lp-logo-dot"></span>
+            <span class="lp-logo-name">CrossFit Mayhem</span>
+            <span class="lp-logo-dot"></span>
+            <span class="lp-logo-name">PRVN Fitness</span>
+            <span class="lp-logo-dot"></span>
+            <span class="lp-logo-name">CrossFit Invictus</span>
+            <span class="lp-logo-dot"></span>
+            <span class="lp-logo-name">HWPO</span>
+            <span class="lp-logo-dot"></span>
+            <span class="lp-logo-name">CrossFit New England</span>
+            <span class="lp-logo-dot"></span>
+            <span class="lp-logo-name">CrossFit Krypton</span>
+            <span class="lp-logo-dot"></span>
+            <span class="lp-logo-name">TTT CrossFit</span>
+            <span class="lp-logo-dot"></span>
+            <span class="lp-logo-name">CrossFit Fort Vancouver</span>
+            <span class="lp-logo-dot"></span>
+            <span class="lp-logo-name">CrossFit Reignited</span>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ SAMPLE REPORT (inline) ═══════════════ -->
+<section class="lp-sample-report" style="padding:2rem 2rem 0">
+    <div class="lp-sample-header" style="margin-bottom:1rem">
+        <p class="lp-sample-sub" style="margin:0">Here's an example report. <a href="#lead-form" onclick="document.getElementById('gym').focus(); window.scrollTo({top:0,behavior:'smooth'}); return false;" style="color:#3b82f6;font-weight:600;text-decoration:none">Get yours &rarr;</a></p>
+    </div>
+</section>
+
+<div id="sample-report-container">
+    <!-- HERO -->
+    <div class="hero" id="hero">
+        <div class="hero-badge">2026 CROSSFIT OPEN</div>
+        <h1 id="hero-gym-name">Your Gym's Open. <span class="highlight">Wrapped.</span></h1>
+        <p class="subtitle">233,074 athletes. 8,794 gyms. Three workouts. Here's where yours stands.</p>
+        <div class="stat-bar">
+            <div class="stat"><div class="stat-number" id="hero-rank">-</div><div class="stat-label">Gym Rank</div></div>
+            <div class="stat"><div class="stat-number" id="hero-pct">-</div><div class="stat-label">Median Percentile</div></div>
+            <div class="stat"><div class="stat-number" id="hero-athletes">-</div><div class="stat-label">Athletes</div></div>
+        </div>
+    </div>
+    <!-- SECTION 0: YOUR OPEN IDENTITY -->
+    <div class="section" id="section-wrapped" style="display:none">
+        <div class="section-number">01</div>
+        <h2>Your Open Identity</h2>
+        <p class="section-subtitle">What does your performance say about you?</p>
+        <p class="thesis">We analyze every athlete's Open data — consistency, trajectory, strengths. <a href="#lead-form" onclick="document.getElementById('gym').focus(); window.scrollTo({top:0,behavior:'smooth'}); return false;" style="color:#3b82f6;font-weight:700;text-decoration:none"><strong>Find out yours.</strong></a></p>
+        <div id="wrapped-card"></div>
+        <div style="text-align:center;margin-top:24px">
+            <a href="#lead-form" class="lp-cta-btn" style="display:inline-block;font-size:0.85rem;padding:10px 20px" onclick="document.getElementById('gym').focus(); window.scrollTo({top:0,behavior:'smooth'}); return false;">Find out yours &rarr;</a>
+        </div>
+    </div>
+    <!-- SECTION 1 -->
+    <div class="section" id="section-1">
+        <div class="section-number">02</div>
+        <h2>Your Gym's Global Rank</h2>
+        <p class="section-subtitle">Where you stand among 8,794 affiliates worldwide</p>
+        <p class="thesis">We looked at every Rx athlete's finish across all three workouts and calculated a single score for each gym. The higher your percentile, the <strong>better your gym performed</strong> compared to everyone else.</p>
+        <div class="stat-grid" id="rank-stats"></div>
+        <div class="chart-container"><div class="chart-title">Your gym among all affiliates</div><div id="rank-chart"></div></div>
+    </div>
+    <!-- SECTION 2 -->
+    <div class="section" id="section-2">
+        <div class="section-number">03</div>
+        <h2>Gym Strength Profile</h2>
+        <p class="section-subtitle">How your gym performed across all three workouts</p>
+        <p class="thesis">Each workout tested something different. Your gym's profile across all three reveals <strong>where you're strong and where there's room to grow</strong>.</p>
+        <div class="stat-grid" id="profile-stats"></div>
+        <div class="chart-container"><div class="chart-title">Workout performance vs global median</div><div id="profile-radar" style="height: 420px;"></div></div>
+        <div class="callout" id="profile-callout"></div>
+    </div>
+    <!-- SECTION 3: YOUR ROSTER -->
+    <div class="section" id="section-10">
+        <div class="section-number">04</div>
+        <h2>Your Roster</h2>
+        <p class="section-subtitle">Where your athletes land in the global field</p>
+        <p class="thesis">Every dot below is one of your athletes, placed by their <strong>overall percentile</strong> across all three workouts. Clusters to the right mean your gym is stacked. Spread across the middle means there's room to level up.</p>
+        <div class="chart-container"><div class="chart-title">Your athletes in the global distribution</div><div id="roster-distribution" style="height: 400px;"></div></div>
+        <div id="roster-insight"></div>
+    </div>
+    <!-- SECTION 4 -->
+    <div class="section" id="section-3">
+        <div class="section-number">05</div>
+        <h2>The Muscle-Up Report</h2>
+        <p class="section-subtitle">The movement that defined the 2026 Open</p>
+        <p class="thesis">26.2 had a cliff: ring muscle-ups at rep 112. Globally, <span id="mu-global-pct">-</span>% of Rx athletes got past that wall. <strong>How did your gym compare?</strong></p>
+        <div class="stat-grid" id="mu-stats"></div>
+        <div id="mu-buckets"></div>
+    </div>
+    <!-- SECTION 5 -->
+    <div class="section" id="section-4">
+        <div class="section-number">06</div>
+        <h2>Best &amp; Worst Workout</h2>
+        <p class="section-subtitle">Which workout your gym crushed &mdash; and which one exposed you</p>
+        <p class="thesis">Every gym has a workout that <strong>lifted</strong> its overall rank and one that <strong>dragged it down</strong>.</p>
+        <div class="stat-grid" id="bw-stats"></div>
+        <div class="chart-container"><div class="chart-title">Your gym's percentile rank by workout vs all affiliates</div><div id="bw-chart" style="height: 350px;"></div></div>
+        <div class="callout" id="bw-callout"></div>
+    </div>
+    <!-- SECTION 6: AWARDS -->
+    <div class="section" id="section-7b">
+        <div class="section-number">07</div>
+        <h2>Gym Awards</h2>
+        <p class="section-subtitle">The standout performers on your roster</p>
+        <p class="thesis">Every gym has standout stories hiding in the data. These are the athletes who earned <strong>unofficial titles</strong> based on how they performed across all three workouts.</p>
+        <div id="awards-content"></div>
+    </div>
+    <!-- SECTION 7: UNTAPPED POTENTIAL -->
+    <div class="section" id="section-7c">
+        <div class="section-number">08</div>
+        <h2>Untapped Potential</h2>
+        <p class="section-subtitle">What if every workout was your best workout?</p>
+        <p class="thesis">For each athlete, we compare their <strong>average percentile to their best single workout</strong>. The gap between the two shows how much upside they have if their weaker areas catch up to their strengths.</p>
+        <div class="chart-container"><div class="chart-title">Potential gain if all workouts matched their best</div><div id="whatif-chart" style="height: 400px;"></div></div>
+    </div>
+    <!-- SECTION 8: DEMOGRAPHICS -->
+    <div class="section" id="section-9">
+        <div class="section-number">09</div>
+        <h2>The Hidden Story</h2>
+        <p class="section-subtitle">What the numbers say about your gym's makeup</p>
+        <p class="thesis">Your gym's age and gender breakdown tells a story about <strong>who's showing up to compete</strong>. Here's how your roster compares to the 233,074-athlete global field.</p>
+        <div class="stat-grid" id="demo-stats"></div>
+        <div class="chart-container"><div class="chart-title">Age distribution &mdash; your gym vs global</div><div id="demo-age-chart" style="height: 350px;"></div></div>
+    </div>
+    <!-- SECTION 10: VETERANS -->
+    <div class="section" id="section-11">
+        <div class="section-number">10</div>
+        <h2>Open Veterans</h2>
+        <p class="section-subtitle">How many Opens has your roster been through?</p>
+        <p class="thesis">Is this their first rodeo or their eighth? The distribution below shows <strong>how many CrossFit Opens each athlete has completed</strong>.</p>
+        <div class="stat-grid" id="vet-stats"></div>
+        <div class="chart-container"><div class="chart-title">Number of Opens completed per athlete</div><div id="vet-chart" style="height: 380px;"></div></div>
+        <div class="chart-container"><div class="chart-title">Does Experience Matter?</div><div id="vet-scatter" style="height: 380px;"></div></div>
+        <div id="vet-insight"></div>
+    </div>
+
+    <div class="lp-sample-cta" style="padding: 3rem 0; text-align:center;">
+        <a href="#lead-form" class="lp-cta-btn" onclick="document.getElementById('gym').focus(); window.scrollTo({top:0,behavior:'smooth'}); return false;">Get My Open Wrapped &rarr;</a>
+    </div>
+</div>
+
+<!-- ═══════════════ MORPH BRANDING ═══════════════ -->
+<section class="lp-morph-brand">
+    <div class="lp-morph-brand-inner">
+        <p class="lp-morph-label">Brought to you by the team at</p>
+        <h2 class="lp-morph-name">Morph</h2>
+        <p class="lp-morph-tagline">Inventing the future of fitness.</p>
+        <a href="/about.html" class="lp-morph-link">Learn more &rarr;</a>
+    </div>
+</section>
+
+<!-- ═══════════════ STICKY CTA BAR ═══════════════ -->
+<div class="lp-sticky-cta" id="sticky-cta">
+    <a href="#lead-form" class="lp-cta-btn" onclick="document.getElementById('gym').focus(); window.scrollTo({top:0,behavior:'smooth'}); return false;">Get My Open Wrapped &rarr;</a>
+</div>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<div class="footer lp-footer">
+    <div class="footer-inner">
+        <p class="footer-morph-detail">Questions? Feedback? <a href="mailto:neel@odysseylabs.com">Get in touch</a></p>
+        <p class="footer-fine">Data sourced from the CrossFit Games leaderboard. Analysis generated from 233,074 public results.</p>
+        <p class="footer-fine">The 2026 CrossFit Open &mdash; 26.1 &middot; 26.2 &middot; 26.3</p>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+<script src="app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/js/tom-select.complete.min.js"></script>
+<script>
+// ═══ Gym dropdown + athlete name autocomplete ═══
+let gymSelect;
+let nameSelect;
+
+async function loadGyms() {
+    try {
+        const resp = await fetch('/data/viz/affiliates_index.json');
+        const gyms = await resp.json();
+        gymSelect = new TomSelect('#gym', {
+            valueField: 'id', labelField: 'name', searchField: ['name'],
+            maxOptions: 50, options: gyms,
+            render: {
+                option: function(data, escape) {
+                    return '<div>' + escape(data.name) + '</div>';
+                },
+                item: function(data, escape) { return '<div>' + escape(data.name) + '</div>'; },
+            },
+            placeholder: 'Search for your gym...',
+            onChange: function(gymId) {
+                if (gymId) loadAthleteNames(gymId);
+            },
+        });
+
+        // Initialize name as TomSelect with create option (free text fallback)
+        nameSelect = new TomSelect('#name', {
+            create: true,
+            createOnBlur: true,
+            maxOptions: 100,
+            placeholder: 'Select your gym first...',
+            render: {
+                option_create: function(data, escape) {
+                    return '<div class="create">Use: <strong>' + escape(data.input) + '</strong></div>';
+                },
+            },
+        });
+        nameSelect.disable();
+    } catch(e) { console.error('Failed to load gyms:', e); }
+}
+
+async function loadAthleteNames(gymId) {
+    try {
+        const resp = await fetch('/data/viz/reports/' + gymId + '.json');
+        if (!resp.ok) {
+            nameSelect.enable();
+            nameSelect.settings.placeholder = 'Type your name...';
+            nameSelect.inputState();
+            return;
+        }
+        const data = await resp.json();
+        const athletes = data.athletes || [];
+
+        nameSelect.clearOptions();
+        nameSelect.clear();
+
+        for (const a of athletes) {
+            nameSelect.addOption({ value: a.name, text: a.name });
+        }
+
+        nameSelect.enable();
+        nameSelect.settings.placeholder = 'Search for your name...';
+        nameSelect.inputState();
+        nameSelect.focus();
+    } catch(e) {
+        nameSelect.enable();
+        nameSelect.settings.placeholder = 'Type your name...';
+        nameSelect.inputState();
+    }
+}
+
+// ═══ Form submit ═══
+document.getElementById('lead-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submit-btn');
+    const btnText = btn.querySelector('.btn-text');
+    const btnLoading = btn.querySelector('.btn-loading');
+    const name = nameSelect ? nameSelect.getValue() : '';
+    const email = document.getElementById('email').value.trim();
+    const role = document.getElementById('role').value;
+    const gymId = gymSelect ? gymSelect.getValue() : '';
+    if (!name || !gymId) { alert('Please select your gym and name'); return; }
+    const gymData = gymSelect.options[gymId];
+    const gymName = gymData ? gymData.name : '';
+    btn.disabled = true; btnText.style.display = 'none'; btnLoading.style.display = 'inline';
+    try {
+        await fetch('/api/submit-lead', {
+            method: 'POST', headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, email, role, affiliate_id: parseInt(gymId), affiliate_name: gymName }),
+        });
+    } catch(err) { console.error('Lead capture error:', err); }
+    localStorage.setItem('cf_report_access', JSON.stringify({ email, name, ts: Date.now() }));
+    window.location.href = '/report.html?gym=' + gymId;
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    loadGyms().then(() => {
+        const params = new URLSearchParams(window.location.search);
+        const redirectGym = params.get('redirect_gym');
+        if (redirectGym && gymSelect) {
+            gymSelect.setValue(redirectGym, true);
+        }
+    });
+
+    // Load Southie report inline as sample
+    loadSampleReport();
+
+    // Sticky CTA: show when scrolled past the hero form, hide near top/bottom
+    const stickyCta = document.getElementById('sticky-cta');
+    if (stickyCta) {
+        window.addEventListener('scroll', function() {
+            const scrollY = window.scrollY;
+            const docH = document.documentElement.scrollHeight;
+            const winH = window.innerHeight;
+            const showAfter = 800;
+            const hideNearBottom = docH - winH - 400;
+            if (scrollY > showAfter && scrollY < hideNearBottom) {
+                stickyCta.classList.add('visible');
+            } else {
+                stickyCta.classList.remove('visible');
+            }
+        });
+    }
+});
+
+async function loadSampleReport() {
+    try {
+        // Set fake access so app.js functions work
+        localStorage.setItem('cf_report_access', JSON.stringify({ email: 'demo@demo.com', name: 'Austin Amery', ts: Date.now() }));
+        const resp = await fetch('/data/viz/reports/1365.json');
+        if (!resp.ok) return;
+        const d = await resp.json();
+        const firstName = 'Austin';
+        renderGlobalRank(d, firstName);
+        renderStrengthProfile(d, firstName);
+        renderMuscleUp(d, firstName);
+        renderBestWorst(d, firstName);
+        renderAwards(d, firstName);
+        renderWhatIf(d, firstName);
+        renderDemographics(d, firstName);
+        renderRosterDistribution(d, firstName);
+        renderOpenVeterans(d, firstName);
+        replaceGymName(d.affiliate_name);
+        renderWrappedCard(d, 'Austin Amery');
+
+        // Collapse awards to overlapping fan on landing page
+        collapseAwardsForLP(d);
+    } catch(e) { console.error('Sample report error:', e); }
+}
+
+function collapseAwardsForLP(d) {
+    const container = document.getElementById('awards-content');
+    if (!container || !d.awards || d.awards.length === 0) return;
+
+    // Mix men and women awards
+    const mensAwards = d.awards.filter(a => a.title && a.title.includes("Men"));
+    const womensAwards = d.awards.filter(a => a.title && a.title.includes("Women"));
+    const mixed = [];
+    const maxLen = Math.max(mensAwards.length, womensAwards.length);
+    for (let i = 0; i < maxLen && mixed.length < 9; i++) {
+        if (i < mensAwards.length && mixed.length < 9) mixed.push(mensAwards[i]);
+        if (i < womensAwards.length && mixed.length < 9) mixed.push(womensAwards[i]);
+    }
+    const awards = mixed.length > 0 ? mixed : d.awards.slice(0, 9);
+
+    // Use the same PNG images as the report page
+    const awardImages = {
+        'The Anchor': 'assets/awards/anchor.png',
+        'The Metronome': 'assets/awards/machine.png',
+        'The Wildcard': 'assets/awards/wildcard.png',
+        'The Engine': 'assets/awards/engine.png',
+        'The Gymnast': 'assets/awards/gymnast.png',
+        'The Barbell': 'assets/awards/barbell.png',
+        'The Closer': 'assets/awards/closer.png',
+        'Rising Star': 'assets/awards/rising-star.png',
+        'The Veteran': 'assets/awards/veteran.png',
+        'Rookie': 'assets/awards/rising-star.png',
+    };
+
+    function getIconHtml(title) {
+        const imgSrc = awardImages[title] || Object.entries(awardImages).find(([k]) => title.includes(k.replace('The ', '')))?.[1];
+        return imgSrc
+            ? '<img src="' + imgSrc + '" alt="' + title + '" style="width:48px;height:48px;object-fit:contain">'
+            : '<span style="font-size:2rem">&#127942;</span>';
+    }
+
+    const front = awards.slice(0, 5);
+    const back = awards.slice(5);
+
+    let html = '<div class="lp-awards-showcase"><div class="lp-awards-back-row">';
+    for (const a of back) {
+        html += '<div class="lp-award-card lp-award-card--back">' +
+            '<div class="lp-award-icon">' + getIconHtml(a.title) + '</div>' +
+            '<div class="lp-award-label">' + a.title + '</div>' +
+            '<div class="lp-award-name">' + a.name + '</div>' +
+            '<div class="lp-award-sub">' + (a.sub || '') + '</div></div>';
+    }
+    html += '</div><div class="lp-awards-front-row">';
+    for (let i = 0; i < front.length; i++) {
+        const a = front[i];
+        html += '<div class="lp-award-card lp-award-card--front" style="--card-index:' + i + '">' +
+            '<div class="lp-award-icon">' + getIconHtml(a.title) + '</div>' +
+            '<div class="lp-award-label">' + a.title + '</div>' +
+            '<div class="lp-award-name">' + a.name + '</div>' +
+            '<div class="lp-award-sub">' + (a.sub || '') + '</div></div>';
+    }
+    html += '</div></div>';
+
+    container.innerHTML = html;
+}
+</script>
+
+</body>
+</html>

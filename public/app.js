@@ -630,8 +630,6 @@ function renderOpenVeterans(d, firstName) {
 
     if (!hasRealData) {
         document.querySelector('#section-11 .thesis').innerHTML += '<br><em style="color:' + COLORS.muted + ';font-size:0.85em">Data shown is estimated from athlete profiles. Full history data coming soon.</em>';
-    } else if (unconfirmed > 0) {
-        document.querySelector('#section-11 .thesis').innerHTML += '<br><em style="color:' + COLORS.muted + ';font-size:0.85em">History confirmed for ' + confirmed + ' of ' + athletes.length + ' athletes via CrossFit competitor ID.</em>';
     }
 
     // Add commentary: does experience matter?
