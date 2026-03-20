@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Morph — Inventing the Future of Fitness</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="about-page">
+    <a href="/" class="about-back">&larr; Back</a>
+
+    <h1 class="about-title">Morph</h1>
+    <p class="about-subtitle">Inventing the future of fitness.</p>
+
+    <div class="about-letter">
+        <p>We're a team of entrepreneurs who started a research lab to help athletes accelerate their progress. Morph is incubating this technology at <strong>CrossFit Southie</strong> as it trains advanced AI and machine learning models.</p>
+    </div>
+
+    <!-- Section 1: Computer Vision -->
+    <div class="about-section">
+        <h3>Teaching computers to see fitness.</h3>
+        <p>No sensors. No wearables. Just cameras that understand human movement.</p>
+        <img src="assets/about/demo1.gif" alt="Computer vision detecting athletes and equipment in a CrossFit gym" style="width:100%; border-radius:16px; margin-top:1rem;">
+    </div>
+
+    <!-- Section 2: Rep Tracking -->
+    <div class="about-section">
+        <h3>Automatically tracking every rep and set.</h3>
+        <p>Walk in. Work out. Walk out. Morph captures everything — no phone, no logging, no buttons.</p>
+        <img src="assets/about/demo2.gif" alt="AI tracking athlete movement with skeleton keypoints during a barbell workout" style="width:100%; border-radius:16px; margin-top:1rem;">
+    </div>
+
+    <!-- Section 3: Accelerate Progress -->
+    <div class="about-section">
+        <h3>Accelerate your progress.</h3>
+        <p>Every session automatically captured, organized, and ready to review. Coming soon.</p>
+        <div style="position:relative; overflow:hidden; margin-top:2rem;">
+            <div id="app-carousel" style="display:flex; transition:transform 0.4s ease; gap:0;">
+                <div style="min-width:100%; display:flex; justify-content:center;">
+                    <div class="phone-frame"><div class="phone-notch"></div><img src="assets/about/app1.png" alt="Workout History"></div>
+                </div>
+                <div style="min-width:100%; display:flex; justify-content:center;">
+                    <div class="phone-frame"><div class="phone-notch"></div><img src="assets/about/app2.png" alt="Activity Feed"></div>
+                </div>
+                <div style="min-width:100%; display:flex; justify-content:center;">
+                    <div class="phone-frame"><div class="phone-notch"></div><img src="assets/about/app3.png" alt="Community Feed"></div>
+                </div>
+            </div>
+            <div style="display:flex; justify-content:center; gap:8px; margin-top:16px;">
+                <button onclick="moveCarousel(0)" class="carousel-dot active" id="dot-0"></button>
+                <button onclick="moveCarousel(1)" class="carousel-dot" id="dot-1"></button>
+                <button onclick="moveCarousel(2)" class="carousel-dot" id="dot-2"></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="about-contact">
+        <p><strong>Want to learn more? We'd love to chat.</strong></p>
+        <p style="margin-top:0.75rem"><a href="mailto:neel@odysseylabs.com">neel@odysseylabs.com</a></p>
+    </div>
+
+    <!-- Instagram Reels -->
+    <div class="about-section" style="max-width:1100px; margin-left:-180px; margin-right:-180px;">
+        <h3 style="text-align:center;">See it in action.</h3>
+        <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; margin-top:1.5rem; max-width:1100px; margin-left:auto; margin-right:auto; align-items:start;">
+            <div class="ig-embed-wrap">
+                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DUCbOKcjDFU/" data-instgrm-version="14" style="width:100%; margin:0; min-width:0;"></blockquote>
+            </div>
+            <div class="ig-embed-wrap">
+                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DUV_3a5DkF3/" data-instgrm-version="14" style="width:100%; margin:0; min-width:0;"></blockquote>
+            </div>
+            <div class="ig-embed-wrap">
+                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DUbaLavEtys/" data-instgrm-version="14" style="width:100%; margin:0; min-width:0;"></blockquote>
+            </div>
+        </div>
+        <script async src="//www.instagram.com/embed.js"></script>
+    </div>
+</div>
+
+<style>
+.carousel-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    border: none; background: #cbd5e1; cursor: pointer;
+    padding: 0; transition: background 0.2s;
+}
+.carousel-dot.active { background: #3b82f6; }
+</style>
+<script>
+let currentSlide = 0;
+function moveCarousel(idx) {
+    currentSlide = idx;
+    document.getElementById('app-carousel').style.transform = `translateX(-${idx * 100}%)`;
+    document.querySelectorAll('.carousel-dot').forEach((d, i) => d.classList.toggle('active', i === idx));
+}
+// Auto-advance every 4 seconds
+setInterval(() => { moveCarousel((currentSlide + 1) % 3); }, 4000);
+</script>
+
+</body>
+</html>
