@@ -572,34 +572,23 @@ function renderOpenVeterans(d, firstName) {
     // Use num_opens field if available, otherwise generate mock data based on age
     const hasRealData = athletes.some(a => a.num_opens != null);
 
-    const withOpens = athletes.map(a => ({
+    // Only include athletes with confirmed history data (num_opens != null)
+    // null means we couldn't verify their history — don't guess
+    const withOpens = athletes.filter(a => a.num_opens != null).map(a => ({
         ...a,
-        num_opens: hasRealData ? (a.num_opens || 1) : (() => {
-            // Seeded pseudo-random from name to get stable but realistic distribution
-            const seed = Array.from(a.name).reduce((s, c) => s * 31 + c.charCodeAt(0), 0);
-            const r = Math.abs(Math.sin(seed)) ;
-            // ~15% first-timers, then declining probability for higher counts
-            if (r < 0.15) return 1;
-            if (r < 0.25) return 2;
-            if (r < 0.35) return 3;
-            if (r < 0.45) return 4;
-            if (r < 0.55) return 5;
-            if (r < 0.65) return 6;
-            if (r < 0.78) return 7;
-            if (r < 0.85) return 8;
-            if (r < 0.92) return 9;
-            return 10;
-        })()
+        num_opens: a.num_opens
     }));
 
-    // Stats
+    // Stats — only count confirmed data
     const opens = withOpens.map(a => a.num_opens);
-    const avgOpens = (opens.reduce((s, v) => s + v, 0) / opens.length).toFixed(1);
+    const confirmed = withOpens.length;
+    const unconfirmed = athletes.length - confirmed;
+    const avgOpens = confirmed > 0 ? (opens.reduce((s, v) => s + v, 0) / opens.length).toFixed(1) : '—';
     const rookies = opens.filter(n => n === 1).length;
     const vets = opens.filter(n => n >= 5).length;
     document.getElementById('vet-stats').innerHTML =
         stat(avgOpens, 'Avg Opens per athlete') +
-        stat(rookies, 'First-timers') +
+        stat(rookies, 'Confirmed first-timers') +
         stat(vets, '5+ year veterans');
 
     // Histogram: distribution of # of Opens
@@ -641,6 +630,8 @@ function renderOpenVeterans(d, firstName) {
 
     if (!hasRealData) {
         document.querySelector('#section-11 .thesis').innerHTML += '<br><em style="color:' + COLORS.muted + ';font-size:0.85em">Data shown is estimated from athlete profiles. Full history data coming soon.</em>';
+    } else if (unconfirmed > 0) {
+        document.querySelector('#section-11 .thesis').innerHTML += '<br><em style="color:' + COLORS.muted + ';font-size:0.85em">History confirmed for ' + confirmed + ' of ' + athletes.length + ' athletes via CrossFit competitor ID.</em>';
     }
 
     // Add commentary: does experience matter?
